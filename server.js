@@ -2,7 +2,10 @@
 const app = require('express')();
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
-const twilio = require('twilio');
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const token = process.env.TWILIO_AUTH_TOKEN;
+//var twilio = require('twilio');
+//var client = new twilio(accountSid, authToken);
 //const VoiceResponse = require('twilio').twiml.VoiceResponse;
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,7 +21,7 @@ let getPrice =  () =>  {
     .then(json => `1 BTC = $${json.data.amount.toLocaleString()}USD`);
 }
 
-app.post('/message', twilio.webhook(), (req, res) => {
+app.post('/message', (req, res) => {
     // Twilio Messaging URL - receives incoming messages from Twilio
     const response = new MessagingResponse();
     const text = req.body.Body;
