@@ -42,7 +42,7 @@ app.post('/message', (req, res) => {
 
 // setup the web server using EXPRESS... NEEDED for testing?
 const http = require('http');
-const port = 5000;
+const port = 5001; // port on the server.
 var server = http.createServer(app); // Start express
 server.listen(port); // Point it to the port we defined above.
-console.log("Started on port 5000;")
+console.log("Started on port "+port)
