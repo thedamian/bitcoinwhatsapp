@@ -3,7 +3,7 @@ const app = require('express')();
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const token = process.env.TWILIO_AUTH_TOKEN;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
 var twilio = require('twilio');
 var twilioSend = new twilio(accountSid, authToken);
 //const VoiceResponse = require('twilio').twiml.VoiceResponse;
@@ -33,13 +33,11 @@ twilioSend.messages
    })   
   .then(message => console.log(message.sid));
               res.end("sent");
-
-                                }
-                        )
-                }
-            )
-
-});
+	
+                                }) // BSV
+                }) // BCH
+	}) //  BTC
+}); // get /send
 
 
 app.post("/sms",(req,res) => {
