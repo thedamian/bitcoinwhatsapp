@@ -2,6 +2,7 @@
 const app = require('express')();
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
+require('dotenv').config();
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 var twilio = require('twilio');
